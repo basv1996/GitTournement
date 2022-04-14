@@ -28,7 +28,7 @@ body {
 }
 
 .index {
-  overflow: hidden;
+  overflow: default;
 }
 
 .index main {
