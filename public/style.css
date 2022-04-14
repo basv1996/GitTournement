@@ -27,6 +27,21 @@ body {
   background-attachment: fixed;
 }
 
+header a {
+  border: 3px solid #30c2e2;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 0 10px #30c2e2, 0 0 5px #30c2e2 inset;
+}
+
+header a:hover {
+  box-shadow: 0 0 20px #800080, 0 0 10px #800080 inset;
+  text-shadow: 0 0 5px white;
+  border: 3px solid #ffffff;
+}
+
 .index {
   overflow: default;
 }
