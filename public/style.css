@@ -28,7 +28,7 @@ body {
 }
 
 .index {
-  overflow: default;
+  overflow: hidden;
 }
 
 .index main {
@@ -76,7 +76,7 @@ body {
 .index h1 {
   color: white;
   text-shadow: 0 0 10px white;
-  font-size: 6vw;
+  font-size: 7vw;
   margin-top: 30vh;
   transition: 1s;
   transform: scale(var(--scale)) translateY(var(--move));
@@ -108,7 +108,6 @@ body {
   box-shadow: 0 0 20px blue, 0 0 20px blue inset;
 }
 
-/* Cube */
 .index li:first-child {
   transform: rotateY(0deg) translateZ(calc(var(--maat) / 2));
 }

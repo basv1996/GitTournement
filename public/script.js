@@ -1,9 +1,9 @@
+let fireScroll = false;
+let blockPos = rotate = 0;
+let scale = 1;
+const singleBlock = document.querySelectorAll('ul');
+
 if (window.location.pathname === "/") {
-    const singleBlock = document.querySelectorAll('ul');
-    let blockPos = rotate = 0;
-    let scale = 1;
-    let fireScroll = false;
-    let ts;
 
     forJsOff();
 
