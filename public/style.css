@@ -17,6 +17,7 @@
   font-family: 'Monoton', sans-serif;
   color: white;
   font-weight: 400;
+  word-spacing: .2em;
 }
 
 body {
@@ -103,9 +104,31 @@ header a:hover {
   font-size: 28px;
   width: 100%;
   height: 100%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.index ul li a div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+
+.index h2 {
+  margin-bottom: 1rem;
+}
+
+.index ul li a p {
+  font-size: 20px;
+}
+
+.index ul li a img {
+  width: 40px;
+}
+
 
 .index a:hover {
   font-weight: 700;

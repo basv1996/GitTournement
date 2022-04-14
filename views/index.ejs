@@ -1,10 +1,21 @@
 <%- include('./partials/head') %>
+
 <body class="index">
 
-<h1>GitTournaments</h1>
+    <h1>GitTournaments</h1>
     <main>
         <ul>
-            <li><a href="commits">Commits</a></li>
+            <li>
+                <% data.sort((a, b) => (a.node.defaultBranchRef.target.history.totalCount < b.node.defaultBranchRef.target.history.totalCount) ? 1 : -1)  %>
+                <a href="commits">
+                    <h2>Commits</h2>
+                    <div>
+                        <img src="img/trophy.svg" alt="Trophy">
+                        <p><%= data[0].node.owner.login %></p>
+                        <p><%= data[0].node.defaultBranchRef.target.history.totalCount %></p>
+                    </div>
+                </a>
+            </li>
             <li></li>
             <li></li>
             <li></li>
@@ -12,7 +23,17 @@
             <li></li>
         </ul>
         <ul>
-            <li><a href="repos">Repo's</a></li>
+            <li>
+                <% data.sort((a, b) => (a.node.owner.repositories.totalCount < b.node.owner.repositories.totalCount) ? 1 : -1)  %>
+                <a href="repos">
+                    <h2>Repo's</h2>
+                    <div>
+                        <img src="img/trophy.svg" alt="Trophy">
+                        <p><%= data[0].node.owner.login %></p>
+                        <p><%= data[0].node.owner.repositories.totalCount %></p>
+                    </div>
+                </a>
+            </li>
             <li></li>
             <li></li>
             <li></li>
@@ -20,7 +41,17 @@
             <li></li>
         </ul>
         <ul>
-            <li><a href="stars">Stars</a></li>
+            <li>
+                <% data.sort((a, b) => (a.node.owner.starredRepositories.totalCount < b.node.owner.starredRepositories.totalCount) ? 1 : -1)  %>
+                <a href="stars">
+                    <h2>Stars</h2>
+                    <div>
+                        <img src="img/trophy.svg" alt="Trophy">
+                        <p><%= data[0].node.owner.login %></p>
+                        <p><%= data[0].node.owner.starredRepositories.totalCount %></p>
+                    </div>
+                </a>
+            </li>
             <li></li>
             <li></li>
             <li></li>
@@ -28,7 +59,17 @@
             <li></li>
         </ul>
         <ul>
-            <li><a href="followers">Followers</a></li>
+            <li>
+                <% data.sort((a, b) => (a.node.owner.followers.totalCount < b.node.owner.followers.totalCount) ? 1 : -1)  %>
+                <a href="followers">
+                    <h2>Followers</h2>
+                    <div>
+                        <img src="img/trophy.svg" alt="Trophy">
+                        <p><%= data[0].node.owner.login %></p>
+                        <p><%= data[0].node.owner.followers.totalCount %></p>
+                    </div>
+                </a>
+            </li>
             <li></li>
             <li></li>
             <li></li>
@@ -49,16 +90,14 @@
         </svg>
     </div>
     <div class="line2">
-        <svg class="shadow" width="80%" viewBox="0 0 1815 592" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+        <svg class="shadow" width="80%" viewBox="0 0 1815 592" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.5 5.5H328L377.5 325H783V206H1131V587H1815" stroke="#800080" stroke-width="10" />
         </svg>
-        <svg class="shadow" width="80%" viewBox="0 0 1132 916" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+        <svg class="shadow" width="80%" viewBox="0 0 1132 916" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M1132 5.5H677V808C677 808 399.993 808 222.5 808M222.5 808C219.5 729 165.5 697 108 697C46.3157 697 5.00006 743.5 5 808C4.99995 862.262 54.5 911 113 911C171.5 911 222.5 868.5 222.5 808Z"
                 stroke="#800080" stroke-width="10" />
         </svg>
     </div>
 
-<%- include('./partials/foot') %>
+    <%- include('./partials/foot') %>

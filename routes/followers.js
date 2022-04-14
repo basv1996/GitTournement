@@ -18,15 +18,6 @@ module.exports = express
             forks(first: 100) {
               edges {
                 node {
-                  defaultBranchRef {
-                    target {
-                      ... on Commit {
-                        history {
-                          totalCount
-                        }
-                      }
-                    }
-                  }
                   owner {
                     ... on User {
                       avatarUrl
