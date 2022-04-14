@@ -55,3 +55,34 @@ De applicatie zou automatisch moeten starten, zo niet probeer dan het volgende
 npm run start
 ```
 De applicatie zal op poort 8000 runnen. Je gaat dus naar localhost:8000
+
+## code uitleg
+Door middel van een query gegenereerd door de github explorer kunnen we een call doen naar github om data op te halen. Met deze query halen wij de data op uit 
+de repository van browser-technologies van dit studiejaar 2021-22. 
+Hierbij vragen we per user die de repo geforkt heeft om diegene zijn of haar profielfoto, naam, porfiel url en het aantal repo's wat diegene heeft. 
+Hiermee kunnen wij een leaderboard laten zien wie de 
+```
+        `query {
+        repositoryOwner(login: "cmda-minor-web") {
+          repository(name: "browser-technologies-2122") {
+            forks(first: 100) {
+              edges {
+                node {
+                  owner {
+                    ... on User {
+                      avatarUrl
+                      login
+                      name
+                      url
+                      repositories {
+                        totalCount
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }`
+```
