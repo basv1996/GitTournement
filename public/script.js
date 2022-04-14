@@ -3,6 +3,7 @@ if (window.location.pathname === "/") {
     let blockPos = rotate = 0;
     let scale = 1;
     let fireScroll = false;
+    let ts;
 
     forJsOff();
 
@@ -20,10 +21,10 @@ if (window.location.pathname === "/") {
         document.querySelector('ul:last-child li:first-child').appendChild(game4);
     }
 
-    window.addEventListener('wheel', (e) => {
+    function towerScrollAnimation(e, scroll) {
         if (!fireScroll) {
             fireScroll = true;
-            if (e.deltaY < 0) {
+            if (e.deltaY < 0 || scroll > 0) {
                 blockPos = blockPos + singleBlock[0].offsetWidth;
                 if (blockPos > 0) {
                     blockPos = 0;
@@ -37,7 +38,7 @@ if (window.location.pathname === "/") {
                         document.querySelector('h1').style.opacity = '1';
                     }
                 }
-            } else if (e.deltaY > 0) {
+            } else if (e.deltaY > 0 ||scroll < 0) {
                 blockPos = blockPos - singleBlock[0].offsetWidth;
                 if (blockPos < 0 - singleBlock[0].offsetWidth * 4) {
                     blockPos = 0 - singleBlock[0].offsetWidth * 4;
@@ -59,5 +60,18 @@ if (window.location.pathname === "/") {
                 fireScroll = false
             }, 1000);
         }
+    }
+
+    let startY;
+
+    window.addEventListener('wheel', (e) => {
+        towerScrollAnimation(e);
+    });
+    window.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+    });
+    window.addEventListener('touchmove', (e) => {
+        let deltaY = e.touches[0].clientY - startY;
+        towerScrollAnimation(e, deltaY)
     });
 }
